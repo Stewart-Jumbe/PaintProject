@@ -26,7 +26,31 @@ public class Main {
 
         float costOfPaintPotinGBP = 5.76f;
         int timeToPaintARoomInHrs = 4;
-        float hourlyRateInGBP = 75.50f ;
+
+        Scanner hourlyRateInGBPInput = new Scanner(System.in);
+        System.out.println("What's your hourly rate: ");
+        int hourlyRateInGBP = Integer.parseInt(hourlyRateInGBPInput.nextLine());
+
+        String message;
+        switch (hourlyRateInGBP){
+            case 70:
+                message = "Sound";
+                break;
+
+            case 75:
+                message = "Getting pricey";
+                break;
+            case 80,85,90,95,100:
+                message = "I need to change career";
+                break;
+            default:
+                message = "That so low, or thats so high";
+                break;
+
+        }
+
+        System.out.println(message);
+
 
         //int numberOfRoomsInTheHouse = (int)(Math.random()*10) ; //maximum number of rooms will be 9
         int numberOfRoomsInTheHouse = (int)(Math.random()*100) ; //maximum number of rooms will be 99
@@ -36,7 +60,7 @@ public class Main {
         Scanner heigtOfRoomWallInMetersInput = new Scanner(System.in);
         System.out.println("Please enter your room height: ");
         float heightOfRoomWallInMeters = Float.parseFloat(heigtOfRoomWallInMetersInput.nextLine());
-        
+
 
 
 
@@ -68,16 +92,20 @@ public class Main {
         //customer info
         int budgetInGBP = 10000;
 
-        if (totalCostOfPaintInGBP > 10000){
+        if (totalCostOfPaintInGBP > budgetInGBP){
             System.out.println("");//blank line
             System.out.println("This is madness, I cant afford that");
-        }else {
+        }else if (totalCostOfPaintInGBP < 5000){
             System.out.println("");//blank line
-            System.out.println("When can you start JIM");}
+            System.out.println("When can you start JIM");
+        }else {System.out.println("I cant believe its that cheap");
+
+        }
+
 
         //System.out.println("The amount of paint you need is: " + numberOfPaintPotsNeeded);
         System.out.println("");//blank line
-        System.out.println("The amount of paint you need is (rounded): " + numberOfPaintPotsNeededRoundedUp);
+        System.out.println("I'll need: " + numberOfPaintPotsNeededRoundedUp + "paint pots for this job");
         System.out.println("");//blank line
         System.out.println("The cost of the paint alone to do your " +numberOfRoomsInTheHouse + " room house is " + "£"+totalCostOfPaintInGBP );
         System.out.println("");//blank line
@@ -92,19 +120,10 @@ public class Main {
         System.out.println("My random number is " + myRandomNum);
         System.out.println("");
 
-        //Exercise
-        //find highest and lowest value of x and y
+        int switchNumber = 10;
 
-        int y= (int)(Math.random()*101); // will output a number 0 to 100
-        int x= (int) (Math.random()*100); // will output a number 0 to 99
-        int maxValue = Math.max(x,y);
-        int minValue = Math.min(x,y);
 
-        System.out.println("value of y is "+y);
-        System.out.println("value of x is "+x);
 
-        System.out.println("The higherst is "+ maxValue );
-        System.out.println("The lowest value is " + minValue);
 
 
 }
