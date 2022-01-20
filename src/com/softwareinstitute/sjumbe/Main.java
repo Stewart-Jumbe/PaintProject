@@ -1,5 +1,7 @@
 package com.softwareinstitute.sjumbe;
 
+import java.util.Scanner;
+
 public class Main {
 
     private static String myName = "Stewart"; // this needed to be outside of the main method
@@ -30,13 +32,22 @@ public class Main {
         int numberOfRoomsInTheHouse = (int)(Math.random()*100) ; //maximum number of rooms will be 99
 
         System.out.println("The number of rooms is : "+ numberOfRoomsInTheHouse);
-        float heightOfRoomWallInMeters = 4f ;// in meters
+
+        Scanner heigtOfRoomWallInMetersInput = new Scanner(System.in);
+        System.out.println("Please enter your room height: ");
+        float heightOfRoomWallInMeters = Float.parseFloat(heigtOfRoomWallInMetersInput.nextLine());
+        
+
+
+
         float lengthOfRoomWallInMeters = 4f ;
         float numberOfWallsInRoom = 4f;
         float areaOfWallInMetersSqr = heightOfRoomWallInMeters * lengthOfRoomWallInMeters ;
         float totalWallAreaInHouseInMetersSqr = areaOfWallInMetersSqr * numberOfWallsInRoom * numberOfRoomsInTheHouse;
         float numberOfPaintPotsNeeded =totalWallAreaInHouseInMetersSqr/paintPotAreaCoverage;
 
+        String result = (heightOfRoomWallInMeters > 2.5f)? "I'll Need a Ladder" : "Don't need a lader"; //***turnery***
+        System.out.println(result);
         //Rounded up
         //need to round up number of PaintPots needed, so we'll just convert the final result to an int and add 1 to it
         //int numberOfPaintPotsNeededRoundedUp = (int) numberOfPaintPotsNeeded;
@@ -54,10 +65,24 @@ public class Main {
         //caculating total cost of job
         float totalCostOfPaintingInGBP = totalCostOfPaintInGBP + myLabourCostInGBP;
 
+        //customer info
+        int budgetInGBP = 10000;
+
+        if (totalCostOfPaintInGBP > 10000){
+            System.out.println("");//blank line
+            System.out.println("This is madness, I cant afford that");
+        }else {
+            System.out.println("");//blank line
+            System.out.println("When can you start JIM");}
+
         //System.out.println("The amount of paint you need is: " + numberOfPaintPotsNeeded);
+        System.out.println("");//blank line
         System.out.println("The amount of paint you need is (rounded): " + numberOfPaintPotsNeededRoundedUp);
+        System.out.println("");//blank line
         System.out.println("The cost of the paint alone to do your " +numberOfRoomsInTheHouse + " room house is " + "£"+totalCostOfPaintInGBP );
+        System.out.println("");//blank line
         System.out.println("My labour cost for this job will be "+"£"+myLabourCostInGBP);
+        System.out.println("");//blank line
         System.out.println("So the total \"cost\" of this job will be "+"£" + totalCostOfPaintingInGBP );
 
         System.out.println("");
