@@ -4,10 +4,17 @@ import java.util.Scanner;
 
 public class HardCodedPaintMain {
 
+    public static float mmToMConversion(float mmValue){
+        float mValue = mmValue/1000;
+        return mValue;
+    }
+
     public static void main(String[] args) {
 
         Scanner userInput = new Scanner(System.in);
         String customerResponse = "yes";
+
+
         do {
             //calculations to work out the amount of paint needed to paint a room
 
@@ -45,16 +52,19 @@ public class HardCodedPaintMain {
         //hourlyRateInGBPInput.close();
         String[] paintColours = {"Brown", "Grey", "Blue", "Green"};
 
-        System.out.println("Which paint colours would you like use I've got the following: ");
-        for (int i = 0; i < paintColours.length; i++) {
 
-            if(i!=(paintColours.length-1)){
+                System.out.println("Which paint colours would you like use I've got the following: ");
+                for (int i = 0; i < paintColours.length; i++) {
 
-                System.out.print(paintColours[i] + " and ");
-            }else{
-                System.out.print(paintColours[i]);}
+                    if (i != (paintColours.length - 1)) {
 
-            }
+                        System.out.print(paintColours[i] + " and ");
+                    } else {
+                        System.out.print(paintColours[i]);
+                    }
+
+                }
+
 
         System.out.println(" ");
         System.out.println(" ");
@@ -75,13 +85,16 @@ public class HardCodedPaintMain {
             int numberOfRoomsInTheHouse = (int) (Math.random() * 100); //maximum number of rooms will be 99
 
             System.out.println("The number of rooms is : " + numberOfRoomsInTheHouse);
+            System.out.println("Please enter your average room height in mm : ");
+            //***SCANNER***
+            float heightOfRoomWallInMM =Float.parseFloat(userInput.nextLine());
+            float heightOfRoomWallInMeters =mmToMConversion(heightOfRoomWallInMM) ;
 
-            Scanner heigtOfRoomWallInMetersInput = new Scanner(System.in);
-            System.out.println("Please enter your room height: ");
-            float heightOfRoomWallInMeters = Float.parseFloat(heigtOfRoomWallInMetersInput.nextLine());
+            System.out.println("Please enter your average room length in mm : ");
+            //***SCANNER***
+            float lengthOfRoomWallsInMM = Float.parseFloat(userInput.nextLine());
+            float lengthOfRoomWallInMeters = mmToMConversion(lengthOfRoomWallsInMM);
 
-
-            float lengthOfRoomWallInMeters = 4f;
             float numberOfWallsInRoom = 4f;
             float areaOfWallInMetersSqr = heightOfRoomWallInMeters * lengthOfRoomWallInMeters;
             float totalWallAreaInHouseInMetersSqr = areaOfWallInMetersSqr * numberOfWallsInRoom * numberOfRoomsInTheHouse;
@@ -122,7 +135,7 @@ public class HardCodedPaintMain {
                 System.out.println("This is madness, I cant afford that");
             } else if (totalCostOfPaintInGBP < 5000) {
                 System.out.println("");//blank line
-                System.out.println("When can you start JIM");
+                System.out.println("Great price, when can you start Jim");
             } else {
                 System.out.println("I cant believe its that cheap");
 
