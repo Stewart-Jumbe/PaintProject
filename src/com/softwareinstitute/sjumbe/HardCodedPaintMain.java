@@ -6,31 +6,25 @@ public class HardCodedPaintMain {
 
     public static void main(String[] args) {
 
-        //calculations to work out the amount of paint needed to paint a room
+        Scanner userInput = new Scanner(System.in);
+        String customerResponse = "yes";
+        do {
+            //calculations to work out the amount of paint needed to paint a room
 
         int paintPotAreaCoverage = 10; // m2
         float costOfPaintPotinGBP = 5.76f;
         int timeToPaintARoomInHrs = 4;
         int budgetInGBP = 10000;
 
-        Scanner hourlyRateInGBPInput = new Scanner(System.in);
+
         System.out.println("What's your hourly rate: ");
-        int hourlyRateInGBP = Integer.parseInt(hourlyRateInGBPInput.nextLine());
-        //hourlyRateInGBPInput.close();
-        String[] paintColours = {"brown", "grey", "blue", "green"};
-
-        System.out.println("Which paint colours would you like use I've got the following ");
-        for (int i = 0; i < paintColours.length; i++) {
-
-            System.out.print(paintColours[i] + " and ");
-
-            }
+        int hourlyRateInGBP = Integer.parseInt(userInput.nextLine());
 
             //Example of switch case
             String message;
             switch (hourlyRateInGBP) {
                 case 70:
-                    message = "Sound";
+                    message = "Ohh, Great price";
                     break;
 
                 case 75:
@@ -45,13 +39,37 @@ public class HardCodedPaintMain {
 
             }
 
+            System.out.println("");
+            System.out.println(message); // from Switch case
+
+        //hourlyRateInGBPInput.close();
+        String[] paintColours = {"Brown", "Grey", "Blue", "Green"};
+
+        System.out.println("Which paint colours would you like use I've got the following: ");
+        for (int i = 0; i < paintColours.length; i++) {
+
+            if(i!=(paintColours.length-1)){
+
+                System.out.print(paintColours[i] + " and ");
+            }else{
+                System.out.print(paintColours[i]);}
+
+            }
+
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("Please enter your colour: ");
+        String customersChosenColour = userInput.nextLine();
+
+
+
+
 //        while(timeToPaintARoomInHrs >2){
 //            timeToPaintARoomInHrs++;
 //        }
 //        System.out.println(timeToPaintARoomInHrs);
 
-            System.out.println("");
-            System.out.println(message); // from Switch case
+
 
             //int numberOfRoomsInTheHouse = (int)(Math.random()*10) ; //maximum number of rooms will be 9
             int numberOfRoomsInTheHouse = (int) (Math.random() * 100); //maximum number of rooms will be 99
@@ -86,16 +104,7 @@ public class HardCodedPaintMain {
             //customer info
 
 
-            if (totalCostOfPaintInGBP > budgetInGBP) {
-                System.out.println("");//blank line
-                System.out.println("This is madness, I cant afford that");
-            } else if (totalCostOfPaintInGBP < 5000) {
-                System.out.println("");//blank line
-                System.out.println("When can you start JIM");
-            } else {
-                System.out.println("I cant believe its that cheap");
 
-            }
 
 
             //System.out.println("The amount of paint you need is: " + numberOfPaintPotsNeeded);
@@ -108,18 +117,26 @@ public class HardCodedPaintMain {
             System.out.println("");//blank line
             System.out.println("So the total \"cost\" of this job will be " + "£" + totalCostOfPaintingInGBP);
 
+            if (totalCostOfPaintInGBP > budgetInGBP) {
+                System.out.println("");//blank line
+                System.out.println("This is madness, I cant afford that");
+            } else if (totalCostOfPaintInGBP < 5000) {
+                System.out.println("");//blank line
+                System.out.println("When can you start JIM");
+            } else {
+                System.out.println("I cant believe its that cheap");
+
+            }
+
+
             Scanner customerInputForAdditionalWork = new Scanner(System.in);
             System.out.println("Did you like the quality of my work");
-            String customerResponse = customerInputForAdditionalWork.nextLine();
+            customerResponse = userInput.nextLine();
 
-            do {
-                if (customerResponse.contains("y")) {
 
-                    System.out.println("I'll get Hex to run another qoute");
-
-                }
             } while (customerResponse.contains("y"));
             System.out.println("Wonderful I'm Hex, which house would you like me to do now?");
+
 
 
         }
