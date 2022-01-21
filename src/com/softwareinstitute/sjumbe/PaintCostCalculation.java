@@ -11,7 +11,7 @@ public class PaintCostCalculation {
     //float costOfPaintPotInGBP = 5.76f;
     int timeToPaintARoomInHrs = 4;
     float hourlyRateInGBP = 75.50f;
-    float heightOfRoomWallInMeters= 0;
+    float heightOfRoomWallInMeters= 10f;
     float lengthOfRoomWallInMeters = 4f ;
     int numberOfRoomsInTheHouse = (int)((Math.random()*100) +1) ;
     float numberOfWallsInRoom = 4f;
@@ -23,6 +23,8 @@ public class PaintCostCalculation {
 
     //Scanner costOfPaintPotInGBPInput = new Scanner(System.in);
     //double costOfPaintPotInGBP = Double.parseDouble(costOfPaintPotInGBPInput.nextLine());
+
+
 
     //Method for calculating the amount of paint needed to paint a room.
     public  void calculatingNumberOfPaintPotsNeeded(){
@@ -36,6 +38,7 @@ public class PaintCostCalculation {
         float totalWallAreaInHouseInMetersSqr = areaOfWallInMetersSqr * numberOfWallsInRoom * numberOfRoomsInTheHouse;
 
         float numberOfPaintPotsNeeded =totalWallAreaInHouseInMetersSqr/paintPotAreaCoverage;
+        System.out.print("The float value of the number of Paint Pots needd is: " +numberOfPaintPotsNeeded);
         int numberOfPaintPotsNeededRoundedUp = (int)Math.ceil(numberOfPaintPotsNeeded);
         System.out.println("The number of Paint Pots Needed is: " + numberOfPaintPotsNeededRoundedUp);
 

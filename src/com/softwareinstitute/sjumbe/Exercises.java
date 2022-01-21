@@ -17,5 +17,11 @@ public class Exercises {
 
         System.out.println("The higherst is " + maxValue);
         System.out.println("The lowest value is " + minValue);
+
+        PaintCostCalculation obj = new PaintCostCalculation();
+        obj.calculatingNumberOfPaintPotsNeeded();
     }
+
+
+
 }
