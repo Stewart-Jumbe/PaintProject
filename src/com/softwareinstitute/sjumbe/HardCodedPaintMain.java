@@ -9,10 +9,15 @@ public class HardCodedPaintMain {
         return mValue;
     }
 
+    public static String addSpaceBetweenPrints(){
+        return " ";
+    }
+
+
     public static void main(String[] args) {
 
         Scanner userInput = new Scanner(System.in);
-        String customerResponse = "yes";
+        String customerResponse = "yes";//initalising it for use in the while loop
 
 
         do {
@@ -23,37 +28,44 @@ public class HardCodedPaintMain {
         int timeToPaintARoomInHrs = 4;
         int budgetInGBP = 10000;
 
+        System.out.println("Hello, what is your name: ");
+        String customerName = userInput.nextLine();
+        addSpaceBetweenPrints();
 
-        System.out.println("What's your hourly rate: ");
+        System.out.println("Jim, What's your hourly rate: ");
         int hourlyRateInGBP = Integer.parseInt(userInput.nextLine());
 
             //Example of switch case
             String message;
             switch (hourlyRateInGBP) {
                 case 70:
-                    message = "Ohh, Great price";
+                    message = customerName +":" +" Ohh, Great price";
+                    break;
+
+                case 20, 30, 40, 50, 60, 65:
+                    message = customerName +":" +" (think to self) Amazing  price...too good to be true?!";
                     break;
 
                 case 75:
-                    message = "Getting pricey";
+                    message = customerName +":" +" Getting pricey";
                     break;
                 case 80, 85, 90, 95, 100:
-                    message = "I need to change career";
+                    message = customerName +":" +" I need to change career";
                     break;
                 default:
-                    message = "That so low, or thats so high";
+                    message = customerName +":" +" That's so low";
                     break;
 
             }
 
-            System.out.println("");
+          addSpaceBetweenPrints();
             System.out.println(message); // from Switch case
 
         //hourlyRateInGBPInput.close();
         String[] paintColours = {"Brown", "Grey", "Blue", "Green"};
 
 
-                System.out.println("Which paint colours would you like use I've got the following: ");
+                System.out.println(customerName +","+ " Which paint colours would you like use I've got the following: ");
                 for (int i = 0; i < paintColours.length; i++) {
 
                     if (i != (paintColours.length - 1)) {
@@ -70,14 +82,6 @@ public class HardCodedPaintMain {
         System.out.println(" ");
         System.out.println("Please enter your colour: ");
         String customersChosenColour = userInput.nextLine();
-
-
-
-
-//        while(timeToPaintARoomInHrs >2){
-//            timeToPaintARoomInHrs++;
-//        }
-//        System.out.println(timeToPaintARoomInHrs);
 
 
 
@@ -114,14 +118,10 @@ public class HardCodedPaintMain {
             float myLabourCostInGBP = timeToPaintARoomInHrs * numberOfRoomsInTheHouse * hourlyRateInGBP;
             float totalCostOfPaintingInGBP = totalCostOfPaintInGBP + myLabourCostInGBP;
 
-            //customer info
-
-
-
-
 
             //System.out.println("The amount of paint you need is: " + numberOfPaintPotsNeeded);
             System.out.println("");//blank line
+            System.out.println("-----------------------------------------------------------------------------");
             System.out.println("I'll need: " + numberOfPaintPotsNeededRoundedUp + "paint pots for this job");
             System.out.println("");//blank line
             System.out.println("The cost of the paint alone to do your " + numberOfRoomsInTheHouse + " room house is " + "£" + totalCostOfPaintInGBP);
@@ -129,6 +129,7 @@ public class HardCodedPaintMain {
             System.out.println("My labour cost for this job will be " + "£" + myLabourCostInGBP);
             System.out.println("");//blank line
             System.out.println("So the total \"cost\" of this job will be " + "£" + totalCostOfPaintingInGBP);
+            System.out.println("-----------------------------------------------------------------------------");
 
             if (totalCostOfPaintInGBP > budgetInGBP) {
                 System.out.println("");//blank line
@@ -147,8 +148,8 @@ public class HardCodedPaintMain {
             customerResponse = userInput.nextLine();
 
 
-            } while (customerResponse.contains("y"));
-            System.out.println("Wonderful I'm Hex, which house would you like me to do now?");
+            } while (customerResponse.contains("y"));// if user enters do section will be executed again
+            System.out.println("Sorry about that, Could you please leave a more detailed review");
 
 
 
